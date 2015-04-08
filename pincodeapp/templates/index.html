@@ -24,12 +24,17 @@
         </div>
         
         <div class="page-header" ng-hide="numberOfResults==null">
-          <h3>Output <small>[[numberOfResults]] results found !</small></h3>
+          <h3>Output <small>[[numberOfShownData]] showing out of [[numberOfResults]]!</small>
+          </h3>
+          <div class="alert alert-info" role="alert" ng-show='showPaginationAlert'> 
+            <strong>Heads up!</strong> Pagination work is in progress.. 
+          </div>
         </div>
         <div class="table-responsive" ng-hide="pincodes.length==0">
           <table class="table table-hover">
           <thead>
             <tr>
+              <th>Office Name</th>
               <th>Pincode</th>
               <th>Division Name</th>
               <th>Region Name</th>
@@ -40,6 +45,7 @@
           </thead>
           <tbody>
             <tr ng-repeat="pincode in pincodes">
+              <td>[[pincode.office_name]]</td>
               <td>[[pincode.pincode]]</td>
               <td>[[pincode.division_name]]</td>
               <td>[[pincode.region_name]]</td>
