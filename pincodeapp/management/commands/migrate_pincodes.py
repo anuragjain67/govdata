@@ -10,7 +10,8 @@ class Command(BaseCommand):
             spamreader = csv.reader(csvfile, delimiter=',', quotechar='|')
             first_row = spamreader.next()
             for row in spamreader:
-                pincode = PinCodeDirectory(
+                try:
+                    pincode = PinCodeDirectory(
                                  office_name=row[0],
                                  pincode=row[1],
                                  office_type=row[2],
@@ -22,4 +23,6 @@ class Command(BaseCommand):
                                  district_name=row[8],
                                  state_name=row[9]
                                  )
-                pincode.save()
+                    pincode.save()
+                except:
+                    print "Not able to migrate this row ", row
