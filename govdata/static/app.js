@@ -1,4 +1,4 @@
-angular.module('pincodeApp', []);
+angular.module('pincodeApp', ['angular-loading-bar', 'ngAnimate']);
 
 angular.module('pincodeApp')
 
@@ -40,6 +40,7 @@ angular.module('pincodeApp')
       $scope.numberOfResults = data.meta.total_count;
       if (data.meta.next == null){
         $scope.numberOfShownData = data.meta.total_count;
+        $scope.showPaginationAlert = false;
       }
       else{
         $scope.numberOfShownData = data.meta.limit;

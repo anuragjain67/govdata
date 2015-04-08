@@ -7,7 +7,11 @@
     <meta name="author" content="">
     <title>Search Pincode</title>
     <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css" rel="stylesheet">
+    <link href="//cdnjs.cloudflare.com/ajax/libs/angular-loading-bar/0.7.1/loading-bar.min.css" rel="stylesheet">
+    
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular-animate.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-loading-bar/0.7.1/loading-bar.min.js"></script>
     <script src="/static/app.js"></script>
   </head>
   <body>
@@ -28,7 +32,7 @@
           <h3>Output <small ng-hide="loader.loading">[[numberOfShownData]] showing out of [[numberOfResults]]!</small>
           </h3>
           <div class="alert alert-info" role="alert" ng-show='showPaginationAlert'> 
-            <strong>Heads up!</strong> Pagination work is in progress.. 
+            <strong>Heads up!</strong> Pagination work is in progress... 
           </div>
         </div>
         <div class="table-responsive" ng-hide="pincodes.length==0||loader.loading">
