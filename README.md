@@ -1,35 +1,67 @@
-# python-getting-started
+# Apps based on GovData
 
-A barebones Python app, which can easily be deployed to Heroku.
+this project will be containing multiple apps related to govdata. For now adding Pincode search app.
 
-This application support the [Getting Started with Python on Heroku](https://devcenter.heroku.com/articles/getting-started-with-python) article - check it out.
+## PincodeApp
+* Support for CURD APIs
 
-## Running Locally
+```
+GET: /api/pincodes
 
-Make sure you have Python [installed properly](http://install.python-guide.org).  Also, install the [Heroku Toolbelt](https://toolbelt.heroku.com/).
+{
+   "meta":{
+      "limit":20,
+      "next":null,
+      "offset":0,
+      "previous":null,
+      "total_count":1
+   },
+   "objects":[
+      {
+         "circle_name":"West Bengal",
+         "delivery_status":"Delivery",
+         "district_name":"Malda",
+         "division_name":"Malda",
+         "id":1,
+         "office_name":"Baishnabnagar S.O",
+         "office_type":"S.O",
+         "pincode":732210,
+         "region_name":"North Bengal And Sikkim",
+         "resource_uri":"/api/pincode/1/",
+         "state_name":"WEST BENGAL",
+         "taluk":"Kaliachak-ii"
+      }
+   ]
+}
 
-```sh
-$ git clone git@github.com:heroku/python-getting-started.git
-$ cd python-getting-started
-$ pip install -r requirements.txt
-$ python manage.py syncdb
-$ foreman start web
+POST /api/pincodes
+Content Type -> application/json
+data to post:
+
+{
+    "circle_name":"West Bengal",
+    "pincode":732210,
+    "state_name": "WEST BENGAL",
+    ...
+}
+
+Also supports for PUT, PATCH
+
+Also support filtering for 
+pincode, region_name, circle_name,
+district_name, state_name
+/api/pincode/?q='west'
 ```
 
-Your app should now be running on [localhost:5000](http://localhost:5000/).
+* Contains first time data migration script
+https://data.gov.in/resources/all-india-pincode-directory/download
 
-## Deploying to Heroku
+* A basic page which will consume Search API.
 
-```sh
-$ heroku create
-$ git push heroku master
-$ heroku run python manage.py syncdb
-$ heroku open
-```
+* Unit Test case
 
-## Documentation
+* Performance test case
 
-For more information about using Python on Heroku, see these Dev Center articles:
+* Script for deployment
 
-- [Python on Heroku](https://devcenter.heroku.com/categories/python)
-
+* Travis
