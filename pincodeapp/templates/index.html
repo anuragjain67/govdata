@@ -16,6 +16,7 @@
       <h3 class="text-muted">Pincode Directory</h3>
     </div>
       <div ng-controller="searchPincodeCtrl">
+        
         <div class="input-group">
           <input type="text" class="form-control" ng-model="searchTerm" placeholder="pincode, state, region ...">
           <span class="input-group-btn">
@@ -24,13 +25,13 @@
         </div>
         
         <div class="page-header" ng-hide="numberOfResults==null">
-          <h3>Output <small>[[numberOfShownData]] showing out of [[numberOfResults]]!</small>
+          <h3>Output <small ng-hide="loader.loading">[[numberOfShownData]] showing out of [[numberOfResults]]!</small>
           </h3>
           <div class="alert alert-info" role="alert" ng-show='showPaginationAlert'> 
             <strong>Heads up!</strong> Pagination work is in progress.. 
           </div>
         </div>
-        <div class="table-responsive" ng-hide="pincodes.length==0">
+        <div class="table-responsive" ng-hide="pincodes.length==0||loader.loading">
           <table class="table table-hover">
           <thead>
             <tr>

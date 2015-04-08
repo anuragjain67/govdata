@@ -42,6 +42,7 @@ class PincodeResource(BaseModelResource):
         if('q' in filters):
             query = filters['q']
             qset = (
+                    Q(office_name__icontains=query) |
                     Q(pincode__icontains=query) |
                     Q(region_name__icontains=query) |
                     Q(circle_name__icontains=query) |

@@ -26,7 +26,14 @@ angular.module('pincodeApp')
   $scope.numberOfResults = null;
   $scope.numberOfShownData = null;
   $scope.showPaginationAlert = false;
+
+  // Adding for loading display
+  $scope.loader = {};
+  $scope.loader.loading = false;
+
+
   $scope.getPincodes = function () {
+    $scope.loader.loading = true;
     var httpRequest = Pincode.getPincodes($scope.searchTerm);
     httpRequest.success(function(data, status, headers, config){
       $scope.pincodes = data.objects;
@@ -38,6 +45,7 @@ angular.module('pincodeApp')
         $scope.numberOfShownData = data.meta.limit;
         $scope.showPaginationAlert = true;
       }
+      $scope.loader.loading = false;
     })
   }
 }]);
