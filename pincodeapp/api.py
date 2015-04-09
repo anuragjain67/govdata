@@ -42,12 +42,12 @@ class PincodeResource(BaseModelResource):
         if('q' in filters):
             query = filters['q']
             qset = (
-                    Q(office_name__icontains=query) |
-                    Q(pincode__icontains=query) |
-                    Q(region_name__icontains=query) |
-                    Q(circle_name__icontains=query) |
-                    Q(district_name__icontains=query) |
-                    Q(state_name__icontains=query)
+                    Q(office_name__istartswith=query) |
+                    Q(pincode__istartswith=query) |
+                    Q(region_name__istartswith=query) |
+                    Q(circle_name__istartswith=query) |
+                    Q(district_name__istartswith=query) |
+                    Q(state_name__istartswith=query)
                     )
             orm_filters.update({'custom': qset})
         return orm_filters
