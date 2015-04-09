@@ -1,6 +1,6 @@
 # Apps based on GovData
 [![Build Status](https://travis-ci.org/anuragjain67/govdata.svg?branch=master)](https://travis-ci.org/anuragjain67/govdata)
-this project will be containing multiple apps related to govdata. For now adding Pincode search app.
+This project will be containing multiple apps related to govdata. For now, just contains pincode directory.
 
 ## PincodeApp
 * Support for CURD APIs
@@ -53,15 +53,15 @@ district_name, state_name
 /api/pincode/?q='west'
 ```
 
-* Contains first time data migration script
+* Contains first time data migration script (Unfortunately heroku supports only 10000 rows free, so had to restrict in the script)
 https://data.gov.in/resources/all-india-pincode-directory/download
 
 * A basic page which will consume Search API.
 
 * Unit Test case
 
-* Performance test case
+* Continuos Integration with Travis and Heroku
 
-* Script for deployment
-
-* Travis
+* Improvements:
+   * Search API can improved by writing sql query instead of using ORM. 
+   * Write the performance tests.
