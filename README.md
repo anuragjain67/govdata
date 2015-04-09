@@ -1,5 +1,5 @@
 # Apps based on GovData
-
+[![Build Status](https://travis-ci.org/anuragjain67/govdata.svg?branch=master)](https://travis-ci.org/anuragjain67/govdata)
 this project will be containing multiple apps related to govdata. For now adding Pincode search app.
 
 ## PincodeApp
