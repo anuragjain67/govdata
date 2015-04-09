@@ -55,6 +55,7 @@ district_name, state_name
 
 * Contains first time data migration script (Unfortunately heroku supports only 10000 rows free, so had to restrict in the script)
 https://data.gov.in/resources/all-india-pincode-directory/download
+Command: python manage.py migrate_pincodes
 
 * A basic page which will consume Search API.
 
