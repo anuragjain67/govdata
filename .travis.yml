@@ -7,5 +7,6 @@ install:
 script: python runtests.py
 deploy: 
   provider: heroku
+  app: pincode-app-by-anurag
   api_key: 
     secure: RzQUxP3XfHGhFkEo1y6ZQZCfHI2h1HOsxFqMORkkZ9HIDNapmP2Ho9bFvgdkqtAU4Di0AiFqc9Sp9VPmpi2eo+xb0B8LYmoovKMFDskJOAEWXTc0sohwLvUEnrf9169QlWNR5XuxrrugyfwpD6uW0Byw79F09jzdl8HdqRGdgfk=
