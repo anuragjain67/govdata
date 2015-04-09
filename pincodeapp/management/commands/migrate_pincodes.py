@@ -9,7 +9,12 @@ class Command(BaseCommand):
         with open('pincodeapp/data/all_india_pin_code.csv', 'rb') as csvfile:
             spamreader = csv.reader(csvfile, delimiter=',', quotechar='|')
             first_row = spamreader.next()
+            count = 0
             for row in spamreader:
+                count += 1
+                if count > 9990:
+                    # Adding break because heroku only permit 10000 rows.
+                    break
                 try:
                     pincode = PinCodeDirectory(
                                  office_name=row[0],
