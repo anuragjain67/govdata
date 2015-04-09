@@ -29,5 +29,6 @@ class Command(BaseCommand):
                                  state_name=row[9]
                                  )
                     pincode.save()
-                except:
+                except Exception as e:
                     print "Not able to migrate this row ", row
+                    print e
